@@ -19,7 +19,7 @@ app.get('/index', (req, res) => {
 //rtsp
 
 const handler = proxy({
-    url: `rtsp://rogelio:rogelio123@192.168.0.190:554/cam/realmonitor?channel=2&subtype=0`,
+    url: `rtsp://rogelio:rogelio123@192.168.100.190:554/cam/realmonitor?channel=2&subtype=0`,
     // if your RTSP stream need credentials, include them in the URL as above
     verbose: false,
   });

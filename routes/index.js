@@ -1,5 +1,5 @@
-const pictures=require('./Pictures');
+const visit=require('./RegisterVisit');
 
 module.exports = [
-    pictures
+    visit
 ];
