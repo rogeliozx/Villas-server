@@ -1,10 +1,28 @@
 const Recorder = require('node-rtsp-recorder').Recorder;
 const path = require('path');
 const Visits = require('../models/Visits');
-const registerVisit = (req, visit) => {
-  const { codeHouse } = req.body;
-};
 
+const registerVisit = async (req, res) => {
+ /*  const { codeHouse, reason } = req.body;
+  try {
+    const data = await Visits.create({
+      user_id: codeHouse,
+      reason,
+      user: codeHouse,
+    });
+    res.status(200).json({
+      succes: true,
+      data,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      succes: false,
+      error,
+    });
+  } */
+  res.json({hola:'porfin hola'})
+};
 
 const getAllNameSeccions=async (req,res)=>{
   /*  try {
@@ -45,5 +63,6 @@ const takePicture = async (codeHouse, year) => {
 
 module.exports = {
   takePicture,
-  getAllNameSeccions
+  getAllNameSeccions,
+  registerVisit
 };
