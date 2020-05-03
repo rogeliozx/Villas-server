@@ -4,10 +4,26 @@ const Visits = require('../models/Visits');
 const registerVisit = (req, visit) => {
   const { codeHouse } = req.body;
 };
-const test = (req, res) => {
-  res.json({ test: 'true' });
-};
 
+
+const getAllNameSeccions=async (req,res)=>{
+  /*  try {
+     const data=await Seccions.find({},'name');
+     res.status(200).json({
+       succes: true,
+       data,
+     });
+   } catch (error) {
+     console.log(error);
+     res.status(500).json({
+       succes: false,
+       error,
+     });
+   } */
+ 
+   res.status(200).json({hola:'hola'})
+ 
+ }
 const takePicture = async (codeHouse, year) => {
   const rec = new Recorder({
     url:
@@ -29,5 +45,5 @@ const takePicture = async (codeHouse, year) => {
 
 module.exports = {
   takePicture,
-  test
+  getAllNameSeccions
 };
