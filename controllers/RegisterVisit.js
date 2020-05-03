@@ -1,9 +1,10 @@
 const Recorder = require('node-rtsp-recorder').Recorder;
 const path = require('path');
 const Visits = require('../models/Visits');
-
+const Seccions = require('../models/Seccions');
+const mongoose = require('mongoose');
 const registerVisit = async (req, res) => {
- /*  const { codeHouse, reason } = req.body;
+    const { codeHouse, reason } = req.body;
   try {
     const data = await Visits.create({
       user_id: codeHouse,
@@ -20,28 +21,24 @@ const registerVisit = async (req, res) => {
       succes: false,
       error,
     });
-  } */
-  res.json({hola:'porfin hola'})
+  }
 };
 
-const getAllNameSeccions=async (req,res)=>{
-  /*  try {
-     const data=await Seccions.find({},'name');
-     res.status(200).json({
-       succes: true,
-       data,
-     });
-   } catch (error) {
-     console.log(error);
-     res.status(500).json({
-       succes: false,
-       error,
-     });
-   } */
- 
-   res.status(200).json({hola:'hola'})
- 
- }
+const getAllNameSeccions = async (req, res) => {
+  try {
+    const data = await Seccions.find({}, { _id: 0, name: 1 });
+    res.status(200).json({
+      succes: true,
+      data,
+    });
+  } catch (error) {
+    res.status(500).json({
+      succes: false,
+      error,
+    });
+  }
+};
+
 const takePicture = async (codeHouse, year) => {
   const rec = new Recorder({
     url:
@@ -64,5 +61,5 @@ const takePicture = async (codeHouse, year) => {
 module.exports = {
   takePicture,
   getAllNameSeccions,
-  registerVisit
+  registerVisit,
 };

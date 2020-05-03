@@ -7,7 +7,7 @@ const Seccions = new Schema(
       required: true,
     },
     users: {
-      type: String,
+      type: Array,
       required: true,
     }
   } 
