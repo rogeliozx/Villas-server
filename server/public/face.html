@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>INe</title>
+    <title>Camara Ife</title>
   </head>
   <body>
-    <canvas id="ine"></canvas>
+    <canvas id="ifeCam"></canvas>
     <script src="https://cdn.jsdelivr.net/gh/phoboslab/jsmpeg@9cf21d3/jsmpeg.min.js"></script>
     <script>
-      new JSMpeg.Player('ws://localhost:3001/stream', {
-        canvas: document.getElementById('ine')
+      const video= new JSMpeg.Player('ws://localhost:3001/face', {
+        canvas: document.getElementById('ifeCam'),
+        audio:false,
+        disableGl:true
       });
     </script>
     <style>

@@ -14,6 +14,10 @@ const Visits = new Schema(
       type: String,
       required: true,
     },
+    picture:{
+      type:Map,
+      required:true
+    }
   },
   { timestamps: { createdAt: 'created_at' } }
 );

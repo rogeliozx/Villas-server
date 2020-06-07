@@ -32,15 +32,24 @@ app.use('/api', routes);
 app.get('/index', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/index.html'));
 });
+app.get('/api/face-cam', (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/face.html'));
+});
 
 //rtsp
 
 const handler = proxy({
   url: `rtsp://rogelio:rogelio123@192.168.100.190:554/cam/realmonitor?channel=2&subtype=0`,
   // if your RTSP stream need credentials, include them in the URL as above
+  verbose: true,
+});
+const faceCam = proxy({
+  url: `rtsp://rogelio:rogelio123@192.168.100.190:554/cam/realmonitor?channel=1&subtype=0`,
+  // if your RTSP stream need credentials, include them in the URL as above
   verbose: false,
 });
 app.ws('/stream', handler);
+app.ws('/face', faceCam);
 
 app.listen(3001, () => {
   console.log('Example app listening on port 3001!');
