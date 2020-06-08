@@ -4,62 +4,62 @@ const Schema = mongoose.Schema;
 const usuarioSchema = new Schema({
   User_id: {
     type: String,
-    required: [true, 'El nombre es necesario']
+    required: [true, 'El nombre es necesario'],
   },
-  EMAIL: {
+  email: {
     type: String,
     unique: true,
   },
-  "CIE / NOMBRE RECORDATORIO":{
-      type:String,
-      unique:false
+  phone: {
+    type: Number,
+    unique: true,
   },
-  TELEFONO:{
-      type:Number,
-      unique:true,
+  name: {
+    type: String,
+    unique: false,
   },
-  NOMBRE:{
-      type:String,
-      unique:false,
+  cellphone: {
+    type: Number,
+    unique: true,
   },
-  CELULAR:{
-      type:Number,
-      unique:true,
+  extension: {
+    type: Number,
+    unique: false,
   },
-  EXTENCION:{
-      type:Number,
-      unique:false,
+  seccion: {
+    type: Number,
+    unique: false,
   },
-SECCION:{
-    type:Number,
-    unique:false,
-},
-PASSWORD:{
-    type:String,
-    unique:false,
-},
-"STATUS AL CORTE":{
-    type:String,
-    unique:false,
-},
-CONSIGNA:{
-    type:String,
-    unique:false,
-},
-"CODIGO DE ACCESO":{
-    type:String,
-    unique:false,
-},
-INVITADOS:{
-type:String,
-unique:false
-},
+  password: {
+    type: String,
+    unique: false,
+  },
+  curtStatus: {
+    type: String,
+    unique: false,
+  },
+  tastk: {
+    type: String,
+    unique: false,
+  },
+  code: {
+    type: String,
+    unique: false,
+  },
+  guest: {
+    type: String,
+    unique: false,
+  },
+  balance: {
+    type: String,
+    unique: false,
+  },
 });
-usuarioSchema.methods.toJSON=()=>{
-  const user=this;
-  const userObject=user.toObject();
+usuarioSchema.methods.toJSON = () => {
+  const user = this;
+  const userObject = user.toObject();
   delete userObject.password;
   return userObject;
-}
+};
 
 module.exports = mongoose.model('Users', usuarioSchema);

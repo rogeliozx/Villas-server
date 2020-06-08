@@ -24,9 +24,9 @@ const registerVisit = async (req, res) => {
           user: codeHouse,
           picture,
         });
-        const { EMAIL } = await getEmail(codeHouse);
-        if (EMAIL) {
-          sendEmail(EMAIL, picture, codeHouse);
+        const { email } = await getEmail(codeHouse);
+        if (email) {
+          sendEmail(email, picture, codeHouse);
         }
         return res.status(200).json({
           succes: true,
@@ -194,12 +194,10 @@ const getTemplate = async () => {
 };
 
 const getEmail = async (codeHouse) => {
-  const formatCodeHouse = ` ${codeHouse}  `;
   try {
     const emailUser = await Users.findOne({
-      User_id: formatCodeHouse,
+      User_id: codeHouse,
     });
-
     if (emailUser) {
       return emailUser;
     } else {
