@@ -6,19 +6,32 @@
     <title>INe</title>
   </head>
   <body>
-    <canvas id="ine"></canvas>
+    <div>
+      <canvas id="ine"></canvas>
+      <canvas id="face"></canvas>
+    </div>
     <script src="https://cdn.jsdelivr.net/gh/phoboslab/jsmpeg@9cf21d3/jsmpeg.min.js"></script>
     <script>
-      new JSMpeg.Player('ws://localhost:3001/stream', {
-        canvas: document.getElementById('ine')
+      new JSMpeg.Player('ws://localhost:4003', {
+        canvas: document.getElementById('ine'),
+      });
+    </script>
+    <script>
+      new JSMpeg.Player('ws://localhost:4004', {
+        canvas: document.getElementById('face'),
       });
     </script>
     <style>
-      *{
+      * {
         width: 35rem;
         height: 25rem;
         margin: 0;
       }
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 100px;
+      }
     </style>
-  </body>   
+  </body>
 </html>

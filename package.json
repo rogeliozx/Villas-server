@@ -16,8 +16,7 @@
     "mongoose": "^5.9.11",
     "node-rtsp-recorder": "^1.0.3",
     "nodemailer": "^6.4.6",
-    "nodemailer-express-handlebars": "^4.0.0",
-    "rtsp-relay": "^1.0.2"
+    "nodemailer-express-handlebars": "^4.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

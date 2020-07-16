@@ -57,7 +57,7 @@ const getAllNameSections = async (req, res) => {
     const data = await Seccions.find({}, { _id: 0, name: 1 });
     res.status(200).json({
       succes: true,
-      data,
+     sections: data,
     });
   } catch (error) {
     res.status(500).json({
