@@ -135,14 +135,6 @@ const getImage = (req, res) => {
 };
 const sendEmail = async (email, picture, codeHouse) => {
   const template = await getTemplate();
-
-  /* const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'rogelioltz@gmail.com',
-      pass: 'Mercy0123!',
-    },
-  }); */
   const transporter = nodemailer.createTransport({
     host: 'smtp.mailtrap.io',
     port: 2525,

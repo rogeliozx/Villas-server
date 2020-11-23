@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 
 makeConnection = async () => {
   await mongoose.connect(
-    'mongodb://localhost:27017/VillasMediterraneo',
+    process.env.urlDB,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
